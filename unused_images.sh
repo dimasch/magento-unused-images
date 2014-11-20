@@ -7,7 +7,7 @@ DB_NAME=$(sed -n 's|<dbname><\!\[CDATA\[\(.*\)\]\]></dbname>|\1|p' ${MAGENTO_PAT
 DB_PREFIX=$(sed -n 's|<table_prefix><\!\[CDATA\[\(.*\)\]\]></table_prefix>|\1|p' ${MAGENTO_PATH}/app/etc/local.xml | tr -d ' ')
 
 function search_db() {
-        COUNT=$(mysql -uroot ${DB_NAME} --execute="SELECT count(*) FROM ${DB_PREFIX}catalog_product_entity_media_gallery WHERE value = \"$1\"")
+        COUNT=$(mysql -u ${DB_USER} -p ${DB_PASS} ${DB_NAME} --execute="SELECT count(*) FROM ${DB_PREFIX}catalog_product_entity_media_gallery WHERE value = \"$1\"")
         echo $(echo ${COUNT} | cut -d" " -f2)
 }
 
