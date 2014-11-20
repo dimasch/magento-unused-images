@@ -12,3 +12,6 @@ Show unused images:
 
 Clean unused images:
 ./unused_images.sh cleanup
+
+For more info, see:
+http://www.rapidcommerce.eu/blog/2012/08/remove-unused-magento-product-images/
